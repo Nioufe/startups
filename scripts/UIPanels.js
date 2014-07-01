@@ -3,11 +3,11 @@
  */
 var UIPanels = {};
 
-(function(){
-    var suAdresse = $('.su_panel.left h3');
-    var description = $('.description');
-
+(function(){;
     UIPanels.changeStartup = function(startup){
         $('.su_panel.left h2').text(startup.name);
+        $('.su_panel.left h3').text(startup.url);
+        $('.description').text(startup.description);
+
     };
 })();
