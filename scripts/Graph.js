@@ -159,14 +159,14 @@ var Graph = {};
                     return "node-" + d.Screen_name;
                 })
                 .attr("transform", function (d) {
-                    return "rotate(" + (d.x - 90) + ")translate(" + (d.metric + d.y + 40) + ", -6)";
+                    return "rotate(" + (d.x - 90) + ")translate(" + (d.metric + d.y + 50) + ", -6)";
                 })
                 .append("svg:rect")
                 .attr("width", function (d) {
                     return 12 + "px";
                 })
                 .attr("height", function (d) {
-                    return d.metric + "px";
+                    return (10 +d.metric) + "px";
                 })
                 .style("fill", function(d) {
                     return color(d.category);
@@ -237,7 +237,9 @@ var Graph = {};
     function mouseover(d) {
         UIPanels.changeStartup(d);
         svg.select('#node-' + d.Screen_name)
-            .classed('current', true);
+            .classed('current', true)
+            .attr('stroke', 'white')
+            .attr('stroke-width', '3');
         svg.selectAll("path.link.target-" + d.Screen_name)
             .classed("target", true)
             .style("stroke", color(d.category))
@@ -251,7 +253,8 @@ var Graph = {};
 
     function mouseout(d) {
         svg.select('#node-' + d.Screen_name)
-            .classed('current', false);
+            .classed('current', false)
+            .attr('stroke', '');
         svg.selectAll("path.link.source-" + d.Screen_name)
             .classed("source", false)
             .style("stroke", '')
