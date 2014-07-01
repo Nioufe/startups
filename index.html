@@ -20,7 +20,7 @@
         $(document).ready(function () {
             $('.su_panel').height($(window).height());
             $('.su_center').height($(window).height());
-
+            UIPanels.loadTweets();
             Graph.init();
         });
     </script>
@@ -51,7 +51,7 @@
                         Tweets: <span class="nb_tweets"></span> <br>
                         Follow: <span class="nb_follow"></span> <br>
                         Followers: <span class="nb_followers"></span> <br>
-                    
+
                 </div>
             </div>
             <div class="row panel_row">
@@ -65,12 +65,13 @@
         <div class="col-md-8 su_center"></div>
         <div class="col-md-2 su_panel">
             <h2>Fil d'actualité des Tweets</h2>
-
+            <div class="tweets">
             <p><strong>Nom Twittos</strong> @twittos <br>
                 <small>Il y a 13h</small>
             </p>
             <p>Contenu du tweet lorem ipsum dolor sit amet nec mergitur <br>
                 <a href="#">http://adressdutwiit</a> <a href="#">#hashtags</a></p>
+            </div>
         </div>
     </div>
 </div>

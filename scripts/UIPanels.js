@@ -24,4 +24,21 @@ var UIPanels = {};
         $('.keywords').text(string);
 
     };
+
+    UIPanels.loadTweets = function(){
+        $('.tweets').empty();
+        d3.json('http://elisa.nafiris.com/get_tweets/', function(tweets){
+            tweets.forEach(function(tweet){
+                var jsonTweet = JSON.parse(tweet);
+                var html = "<p><strong>"+ jsonTweet.user.name +"</strong> @"+ jsonTweet.user.screen_name +" <br>"
+                    +"</p>"
+                    +"<p>"+jsonTweet.text +" <br>"
+                    +jsonTweet.source;
+                jsonTweet.hashtags.forEach(function(hashtag){
+                    html+= " #" + hashtag;
+                });
+                $('.tweets').html(html + $('.tweets').html());
+            });
+        });
+    }
 })();
